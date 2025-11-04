@@ -30,6 +30,7 @@
 
     label {
         font-weight: bold;
+        display: block;
     }
 
     input, select {
@@ -170,6 +171,9 @@
         <label for="especialidade">Especialidade:</label>
         <input type="text" id="especialidade">
 
+        <label for="dataEspecialidade">Data da Especialidade:</label>
+        <input type="date" id="dataEspecialidade">
+
         <label for="nivel1">Nível 1:</label>
         <select id="nivel1">
             <option>Não</option>
@@ -209,6 +213,7 @@
                 <th>Travessia</th>
                 <th>Ação Comunitária</th>
                 <th>Especialidade</th>
+                <th>Data da Especialidade</th>
                 <th>Nível 1</th>
                 <th>Nível 2</th>
                 <th>Nível 3</th>
@@ -242,6 +247,7 @@
             travessia: form.travessia.value,
             acaoComunitaria: form.acaoComunitaria.value,
             especialidade: form.especialidade.value,
+            dataEspecialidade: form.dataEspecialidade.value,
             nivel1: form.nivel1.value,
             nivel2: form.nivel2.value,
             nivel3: form.nivel3.value
@@ -250,7 +256,7 @@
         const linha = document.createElement('tr');
         Object.values(dados).forEach(valor => {
             const td = document.createElement('td');
-            td.textContent = valor;
+            td.textContent = valor || "-";
             linha.appendChild(td);
         });
 
